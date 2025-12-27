@@ -1,5 +1,5 @@
-import { genericFunction, printObject, genericFunctionArrow } from "./generics/generics";
-import { Villain, Hero } from "./interfaces";
+import { Villain, Hero } from "../interfaces";
+import { genericFunction, printObject, genericFunctionArrow } from "../generics/generics";
 
 /*
 printObject('Hola');
