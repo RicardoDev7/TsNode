@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { Pokemon } from '../interfaces';
 
-export const getPokemon = async (pokemonID : number)=> {
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
-    console.log(response);
+export const getPokemon = async (pokemonID : number) : Promise<Pokemon> => {
+    const response = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+    return response.data;
 }

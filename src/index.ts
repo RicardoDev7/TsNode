@@ -1,7 +1,7 @@
 import { getPokemon } from "./generics/get-pokemon";
 
 getPokemon(4)
-    .then(console.log)
+    .then(p => console.log(p.sprites.front_default))
     .catch(console.log)
     .finally
     {
