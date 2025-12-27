@@ -1,9 +1,4 @@
-import { getPokemon } from "./generics/get-pokemon";
+import { Pokemon } from "./decorators/pokemon-class";
 
-getPokemon(4)
-    .then(p => console.log(p.sprites.front_default))
-    .catch(console.log)
-    .finally
-    {
-        console.log('Fin del pokedex');
-    };
+const charmander = new Pokemon('Charmander');
+console.log(charmander);
