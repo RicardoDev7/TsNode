@@ -8,3 +8,5 @@ console.log(charmander);
 
 charmander.savePokemonToDB(-5);
 charmander.savePokemonToDB(5);
+
+charmander.publicAPI = 'Hola, este es un nuevo valor';

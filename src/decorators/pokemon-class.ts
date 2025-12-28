@@ -31,10 +31,33 @@ const blockPrototype = function(constructor: Function){
     Object.seal(constructor.prototype)
 }
 
+function ReadOnly(isWriteable: boolean = true) : Function{
+    return function(target: any, propertyKey: string){
+        //console.log({target, propertyKey});
+        const descriptor: PropertyDescriptor = {
+            get(){
+                console.log(this, 'getter');
+                return 'Fernando';
+            },
+            set(this, value){
+                Object.defineProperty(this, propertyKey, {
+                    value: value,
+                    writable: !isWriteable,
+                    enumerable: false
+                })
+            }
+        }
+        return descriptor;
+    }
+}
+
 @blockPrototype
 @printToConsoleConditional(true)
 export class Pokemon{
+
+    @ReadOnly(true)
     public publicAPI: string = 'https://pokeapi.co/api/v2/';
+
     constructor(
         public name: string
     ){
